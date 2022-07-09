@@ -1,0 +1,5 @@
+// Add your dependencies here
+
+dependencies {
+    compile 'com.github.GTNewHorizons:Forgelin:1.9.2-GTNH-1.7.10-Edition'
+}
