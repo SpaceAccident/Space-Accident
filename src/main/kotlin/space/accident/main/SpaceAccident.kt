@@ -5,7 +5,6 @@ import cpw.mods.fml.common.SidedProxy
 import cpw.mods.fml.common.event.*
 import org.apache.logging.log4j.LogManager
 import org.apache.logging.log4j.Logger
-import space.accident.main.Tags.*
 import space.accident.main.proxy.CommonProxy
 
 @Mod(

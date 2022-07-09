@@ -9,7 +9,6 @@ compileKotlin {
 
 buildConfig {
     packageName(project.modGroup)
-    className('ModTags')
     buildConfigField('String', 'MODID', "\"${project.modId}\"")
     buildConfigField('String', 'MODNAME', "\"${project.modName}\"")
     buildConfigField('String', 'VERSION', "\"${project.modVersion}\"")

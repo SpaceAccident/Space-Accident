@@ -1,7 +1,7 @@
 package space.accident.main.extensions
 
+import space.accident.main.MODNAME
 import space.accident.main.SpaceAccident
-import space.accident.main.Tags.MODNAME
 
 fun Any.info(msg: Any) {
     SpaceAccident.LOG.info("[$MODNAME] $msg")

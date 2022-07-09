@@ -2,6 +2,12 @@
 
 repositories {
     maven {
+        url 'https://cursemaven.com'
+        content {
+            includeGroup 'curse.maven'
+        }
+    }
+    maven {
         name 'jitpack'
         url 'https://jitpack.io'
     }
