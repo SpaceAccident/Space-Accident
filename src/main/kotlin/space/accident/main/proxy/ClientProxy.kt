@@ -1,6 +1,7 @@
 package space.accident.main.proxy
 
 import cpw.mods.fml.common.event.*
+import space.accident.main.event.ClientEvent
 
 class ClientProxy : CommonProxy() {
     // preInit "Run before anything else. Read your config, create blocks, items,
@@ -12,6 +13,8 @@ class ClientProxy : CommonProxy() {
     // load "Do your mod setup. Build whatever data structures you care about. Register recipes."
     override fun init(event: FMLInitializationEvent) {
         super.init(event)
+
+        ClientEvent()
     }
 
     // postInit "Handle interaction with other mods, complete your setup based on this."

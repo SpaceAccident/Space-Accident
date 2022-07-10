@@ -1,5 +1,6 @@
 apply plugin: 'org.jetbrains.kotlin.jvm'
 apply plugin: 'com.github.gmazzo.buildconfig'
+apply plugin: 'kotlin-kapt'
 
 compileKotlin {
     kotlinOptions {
@@ -14,4 +15,11 @@ buildConfig {
     buildConfigField('String', 'VERSION', "\"${project.modVersion}\"")
     buildConfigField('String', 'GROUPNAME', "\"${project.modGroup}\"")
     useKotlinOutput { topLevelConstants = true }
+}
+
+configurations {
+    mods
+    provided
+    embedded
+    compile.extendsFrom provided, embedded
 }

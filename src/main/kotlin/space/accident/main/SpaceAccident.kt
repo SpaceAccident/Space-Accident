@@ -1,10 +1,13 @@
 package space.accident.main
 
+import com.github.stannismod.gext.GExt
+import com.github.stannismod.gext.forge1710.adapter.MinecraftResourceManager
 import cpw.mods.fml.common.Mod
 import cpw.mods.fml.common.SidedProxy
 import cpw.mods.fml.common.event.*
 import org.apache.logging.log4j.LogManager
 import org.apache.logging.log4j.Logger
+import space.accident.main.client.GuiHandler
 import space.accident.main.proxy.CommonProxy
 
 @Mod(
@@ -21,6 +24,10 @@ object SpaceAccident {
     @SidedProxy(clientSide = "$GROUPNAME.proxy.ClientProxy", serverSide = "$GROUPNAME.proxy.CommonProxy")
     lateinit var proxy: CommonProxy
 
+    @JvmStatic
+    @Mod.InstanceFactory
+    fun instance() = SpaceAccident
+
     @Mod.EventHandler
     fun preInit(event: FMLPreInitializationEvent) {
         proxy.preInit(event)
@@ -28,6 +35,7 @@ object SpaceAccident {
 
     @Mod.EventHandler
     fun init(event: FMLInitializationEvent) {
+        GuiHandler()
         proxy.init(event)
     }
 

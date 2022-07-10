@@ -1,30 +1,35 @@
 package space.accident.main.proxy
 
 import cpw.mods.fml.common.event.*
+import net.minecraft.init.Items
+import net.minecraft.item.ItemStack
+import space.accident.main.common.Items.RECIPE_EDITOR
 import space.accident.main.config.Config
+import space.accident.main.extra.reciper.RecipeJsonManager
+import space.accident.main.extra.reciper.ReciperMachine
 
 open class CommonProxy {
-    // preInit "Run before anything else. Read your config, create blocks, items,
-    // etc, and register them with the GameRegistry."
     open fun preInit(event: FMLPreInitializationEvent) {
         Config.createConfig(event.suggestedConfigurationFile)
     }
 
-    // load "Do your mod setup. Build whatever data structures you care about. Register recipes."
     open fun init(event: FMLInitializationEvent) {
-
+        RECIPE_EDITOR.set(ReciperMachine(16000, "Recipe Editor Machines").getStackForm(1))
     }
 
-    // postInit "Handle interaction with other mods, complete your setup based on this."
     open fun postInit(event: FMLPostInitializationEvent) {
-
+        RecipeJsonManager.createRecipe(
+            listOf(ItemStack(Items.potato, 1), ItemStack(Items.diamond, 1)),
+            ItemStack(Items.paper, 2),
+            1, 100,
+            ::println
+        )
     }
 
     open fun serverAboutToStart(event: FMLServerAboutToStartEvent) {
 
     }
 
-    // register server commands in this event handler
     open fun serverStarting(event: FMLServerStartingEvent) {
 
     }
