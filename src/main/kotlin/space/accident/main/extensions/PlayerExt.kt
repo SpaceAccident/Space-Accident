@@ -1,5 +1,6 @@
 package space.accident.main.extensions
 
+import gregtech.api.util.GT_Utility
 import net.minecraft.entity.player.EntityPlayer
 import net.minecraft.world.World
 import space.accident.main.SpaceAccident
@@ -15,4 +16,8 @@ import space.accident.main.client.GuiType
 @JvmOverloads
 fun EntityPlayer.guiOpen(guiType: GuiType, world: World?, x: Int = 0, y: Int = 0, z: Int = 0) {
     world?.let { openGui(SpaceAccident.instance(), guiType.ordinal, world, x, y, z) }
+}
+
+fun EntityPlayer.sendMe(msg: String) {
+    GT_Utility.sendChatToPlayer(this, msg)
 }

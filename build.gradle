@@ -16,6 +16,7 @@ import java.util.concurrent.TimeUnit
 
 buildscript {
     repositories {
+        mavenCentral()
         maven {
             name 'forge'
             url 'https://maven.minecraftforge.net'

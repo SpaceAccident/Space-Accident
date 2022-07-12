@@ -60,7 +60,7 @@ class ReciperGuiSelect : GuiScreen() {
             if (count > 5) break
             buttonList.add(
                 GuiButton(
-                    id, posX, posY + 20 * count, xSize, 20,
+                    id + 1, posX, posY + 20 * count, xSize, 20,
                     GT_LanguageManager.getTranslation(map.mUnlocalizedName)
                 )
             )
@@ -92,7 +92,7 @@ class ReciperGuiSelect : GuiScreen() {
         super.actionPerformed(btn)
         when (btn.id) {
             0 -> searchMaps(searchField.text)
-            else -> mapSearched[btn.id]?.let {
+            else -> mapSearched[btn.id - 1]?.let {
                 ReciperMachine.SELECT_MAP = it
                 PacketOpenRecipeEditor.commit(it.mNEIName)
                 Minecraft.getMinecraft().thePlayer.closeScreen()

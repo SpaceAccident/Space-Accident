@@ -1,7 +1,5 @@
 package space.accident.main
 
-import com.github.stannismod.gext.GExt
-import com.github.stannismod.gext.forge1710.adapter.MinecraftResourceManager
 import cpw.mods.fml.common.Mod
 import cpw.mods.fml.common.SidedProxy
 import cpw.mods.fml.common.event.*

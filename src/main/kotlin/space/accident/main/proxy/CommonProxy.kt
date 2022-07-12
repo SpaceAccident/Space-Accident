@@ -1,8 +1,6 @@
 package space.accident.main.proxy
 
 import cpw.mods.fml.common.event.*
-import net.minecraft.init.Items
-import net.minecraft.item.ItemStack
 import space.accident.main.common.Items.RECIPE_EDITOR
 import space.accident.main.config.Config
 import space.accident.main.extra.reciper.RecipeJsonManager
@@ -18,12 +16,7 @@ open class CommonProxy {
     }
 
     open fun postInit(event: FMLPostInitializationEvent) {
-        RecipeJsonManager.createRecipe(
-            listOf(ItemStack(Items.potato, 1), ItemStack(Items.diamond, 1)),
-            ItemStack(Items.paper, 2),
-            1, 100,
-            ::println
-        )
+        RecipeJsonManager.load() //Call only last
     }
 
     open fun serverAboutToStart(event: FMLServerAboutToStartEvent) {
